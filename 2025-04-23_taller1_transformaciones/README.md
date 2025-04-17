@@ -41,3 +41,18 @@ Scenario:
 > Bonus: Include OrbitControls to navigate the scene
 
 ### Results for Three.js
+
+## Processing (2D or 3D)
+
+Scenario:
+
+* Create a simple sketch (2D or 3D)
+* Draw a geometric figure (rect, ellipse, or box)
+* Apply transformations using:
+* translate(), rotate(), scale()
+* pushMatrix() and popMatrix() to isolate transformations
+* frameCount, millis(), or sin() to create time-based transformations
+
+> Example: A cube that rotates, moves in a wavy motion, and scales cyclically over time
+
+### Results for Processing
