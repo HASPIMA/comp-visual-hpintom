@@ -63,3 +63,6 @@ Scenario:
 > A cube that rotates, moves in a wavy motion, and scales cyclically over time
 
 ### Results for Processing
+
+Please refer to the `processing` folder for the code and results of the Processing
+sketch. Or click [here](processing/README.md) to see the final result.
