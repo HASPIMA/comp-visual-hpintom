@@ -24,3 +24,5 @@ Scenario:
 * Random translation along the X or Y axis every few seconds
 * Constant rotation dependent on Time.deltaTime
 * Oscillating scale based on Mathf.Sin(Time.time)
+
+> Requirements: Use transform.Translate(), transform.Rotate(), transform.localScale
