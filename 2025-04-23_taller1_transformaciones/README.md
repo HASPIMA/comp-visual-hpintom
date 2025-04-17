@@ -13,3 +13,14 @@ Tools: matplotlib, numpy, imageio
 * Export as an animated GIF using imageio
 
 > Optional: Display the resulting matrix of each transformation and how it changes over time
+
+## Unity (LTS version) (Optional)
+
+Scenario:
+
+* Create an empty 3D project
+* Add a cube or sphere to the scene
+* Create a C# script that applies:
+* Random translation along the X or Y axis every few seconds
+* Constant rotation dependent on Time.deltaTime
+* Oscillating scale based on Mathf.Sin(Time.time)
