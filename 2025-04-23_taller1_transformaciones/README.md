@@ -13,6 +13,7 @@ Tools: matplotlib, numpy, imageio
 * Animate the transformation based on time (t) or the frame
 * Export as an animated GIF using `imageio`
 
+> [!TIP]
 > Optional: Display the resulting matrix of each transformation and how it changes over time
 
 ### Results for python
@@ -28,6 +29,7 @@ Scenario:
 * Constant rotation dependent on `Time.deltaTime`
 * Oscillating scale based on `Mathf.Sin(Time.time)`
 
+> [!IMPORTANT]
 > Requirements: Use `transform.Translate()`, `transform.Rotate()`, `transform.localScale`
 
 ## Three.js with React Three Fiber
@@ -41,6 +43,7 @@ Scenario:
   * Rotate it on its own axis with incremental change each frame
   * Scale it smoothly with a time-based function (`Math.sin(clock.elapsedTime)`)
 
+> [!TIP]
 > Bonus: Include `OrbitControls` to navigate the scene
 
 ### Results for Three.js
@@ -56,6 +59,7 @@ Scenario:
   * `pushMatrix()` and `popMatrix()` to isolate transformations
   * `frameCount`, `millis()`, or `sin()` to create time-based transformations
 
+> [!NOTE]
 > Example: A cube that rotates, moves in a wavy motion, and scales cyclically over time
 
 ### Results for Processing
