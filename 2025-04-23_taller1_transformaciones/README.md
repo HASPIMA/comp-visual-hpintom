@@ -1,4 +1,7 @@
-# Transformations
+# Worshop 1: Transformations
+
+This workshop aims to explore the fundamental concepts of geometric transformations
+(translation, rotation and scale) in different visual programming environments.
 
 ## Python (Colab or Jupyter Notebook)
 
