@@ -26,3 +26,18 @@ Scenario:
 * Oscillating scale based on Mathf.Sin(Time.time)
 
 > Requirements: Use transform.Translate(), transform.Rotate(), transform.localScale
+
+## Three.js with React Three Fiber
+
+Scenario:
+
+* Create a project using Vite and React Three Fiber
+* Add a 3D object (cube or sphere)
+* Apply animations with useFrame to:
+* Move the object along a sine or circular trajectory
+* Rotate it on its own axis with incremental change each frame
+* Scale it smoothly with a time-based function (Math.sin(clock.elapsedTime))
+
+> Bonus: Include OrbitControls to navigate the scene
+
+### Results for Three.js
