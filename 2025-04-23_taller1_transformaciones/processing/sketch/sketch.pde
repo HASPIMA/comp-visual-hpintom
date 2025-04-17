@@ -4,5 +4,7 @@ void setup () {
 
 void  draw() {
   background(204);
-  line(width/2, height/2, mouseX, mouseY);
+
+  fill(0);
+  rect(0, 0, 100, 100);
 }
