@@ -5,6 +5,10 @@ over time. The animation is created using the Processing programming language, w
 is designed for visual arts and graphics. The code uses the `translate()` and
 `rotate()` functions to manipulate the squares' positions and angles.
 
+## Final Result
+
+![Final Result](docs/animation.gif)
+
 ## Square Behaviors
 
 ### Square 1 (Black Square)
