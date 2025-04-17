@@ -14,7 +14,7 @@ Tools: matplotlib, numpy, imageio
 * Export as an animated GIF using `imageio`
 
 > [!TIP]
-> Optional: Display the resulting matrix of each transformation and how it changes over time
+> Display the resulting matrix of each transformation and how it changes over time
 
 ### Results for python
 
@@ -30,7 +30,7 @@ Scenario:
 * Oscillating scale based on `Mathf.Sin(Time.time)`
 
 > [!IMPORTANT]
-> Requirements: Use `transform.Translate()`, `transform.Rotate()`, `transform.localScale`
+> Use `transform.Translate()`, `transform.Rotate()`, `transform.localScale`
 
 ## Three.js with React Three Fiber
 
@@ -44,7 +44,7 @@ Scenario:
   * Scale it smoothly with a time-based function (`Math.sin(clock.elapsedTime)`)
 
 > [!TIP]
-> Bonus: Include `OrbitControls` to navigate the scene
+> Include `OrbitControls` to navigate the scene
 
 ### Results for Three.js
 
@@ -60,6 +60,6 @@ Scenario:
   * `frameCount`, `millis()`, or `sin()` to create time-based transformations
 
 > [!NOTE]
-> Example: A cube that rotates, moves in a wavy motion, and scales cyclically over time
+> A cube that rotates, moves in a wavy motion, and scales cyclically over time
 
 ### Results for Processing
