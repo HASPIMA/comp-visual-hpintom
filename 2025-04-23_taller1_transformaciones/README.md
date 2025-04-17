@@ -1,8 +1,6 @@
 # Transformations
 
-## Results
-
-### Python (Colab or Jupyter Notebook)
+## Python (Colab or Jupyter Notebook)
 
 Tools: matplotlib, numpy, imageio
 
@@ -13,6 +11,8 @@ Tools: matplotlib, numpy, imageio
 * Export as an animated GIF using imageio
 
 > Optional: Display the resulting matrix of each transformation and how it changes over time
+
+### Results for python
 
 ## Unity (LTS version) (Optional)
 
