@@ -25,9 +25,9 @@ Scenario:
 * Create an empty 3D project
 * Add a cube or sphere to the scene
 * Create a C# script that applies:
-* Random translation along the X or Y axis every few seconds
-* Constant rotation dependent on `Time.deltaTime`
-* Oscillating scale based on `Mathf.Sin(Time.time)`
+  * Random translation along the X or Y axis every few seconds
+  * Constant rotation dependent on `Time.deltaTime`
+  * Oscillating scale based on `Mathf.Sin(Time.time)`
 
 > [!IMPORTANT]
 > Use `transform.Translate()`, `transform.Rotate()`, `transform.localScale`
@@ -47,6 +47,9 @@ Scenario:
 > Include `OrbitControls` to navigate the scene
 
 ### Results for Three.js
+
+Please refer to the `threejs` folder for the code and results of the Three.js
+project. Or click [here](threejs/README.md) to see the final result.
 
 ## Processing (2D or 3D)
 
