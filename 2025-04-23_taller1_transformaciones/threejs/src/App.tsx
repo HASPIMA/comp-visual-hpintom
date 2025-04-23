@@ -16,6 +16,11 @@ function Box(props: ThreeElements["mesh"]) {
 
     // Rotate the mesh around its own axis
     meshRef.current.rotation.x += delta;
+
+    // Scale the mesh based on its position
+    // It will scale up and down between 0.5 and 1.5
+    const scaleFactor = Math.abs(Math.sin(angle) / 2 + 1);
+    setScale(scaleFactor);
   });
 
   return (
