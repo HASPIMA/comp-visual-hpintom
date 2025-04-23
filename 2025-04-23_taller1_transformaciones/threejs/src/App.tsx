@@ -1,23 +1,15 @@
 import * as THREE from "three";
 import { useRef, useState } from "react";
-import { Canvas, ThreeElements } from "@react-three/fiber";
+import { Canvas, useFrame, ThreeElements } from "@react-three/fiber";
 
 function Box(props: ThreeElements["mesh"]) {
   const meshRef = useRef<THREE.Mesh>(null!);
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
+  const [scale, setScale] = useState(1);
 
   return (
-    <mesh
-      {...props}
-      ref={meshRef}
-      scale={active ? 1.5 : 1}
-      onClick={(_) => setActive(!active)}
-      onPointerOver={(_) => setHover(true)}
-      onPointerOut={(_) => setHover(false)}
-    >
+    <mesh {...props} ref={meshRef} scale={scale}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "#2f74c0"} />
+      <meshStandardMaterial color={"#2f74c0"} />
     </mesh>
   );
 }
