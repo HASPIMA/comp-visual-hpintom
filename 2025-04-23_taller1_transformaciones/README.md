@@ -18,6 +18,9 @@ Tools: matplotlib, numpy, imageio
 
 ### Results for python
 
+Please refer to the `python` folder for the code and results of the Three.js
+project. Or click [here](python/README.md) to see the final result.
+
 ## Unity (LTS version) (Optional)
 
 Scenario:
