@@ -6,13 +6,16 @@ function Box(props: ThreeElements["mesh"]) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const [scale, setScale] = useState(1);
 
-  useFrame((state, _) => {
+  useFrame((state, delta) => {
     const radius = 1.5;
     const angle = state.clock.elapsedTime;
 
     // Move the mesh up and down in a circular motion
     meshRef.current.position.y = Math.sin(angle) * radius;
     meshRef.current.position.x = Math.cos(angle) * radius;
+
+    // Rotate the mesh around its own axis
+    meshRef.current.rotation.x += delta;
   });
 
   return (
