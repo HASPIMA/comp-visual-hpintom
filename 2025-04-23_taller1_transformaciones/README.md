@@ -48,6 +48,9 @@ Scenario:
 
 ### Results for Three.js
 
+Please refer to the `threejs` folder for the code and results of the Three.js
+project. Or click [here](threejs/README.md) to see the final result.
+
 ## Processing (2D or 3D)
 
 Scenario:
