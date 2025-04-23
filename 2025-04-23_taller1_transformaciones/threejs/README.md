@@ -1,54 +1,18 @@
-# React + TypeScript + Vite
+# Three.js Animation result
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The final result is a 3D animation created using Three.js and React Three Fiber.
+The animation features a cube that moves in a circular trajectory, rotates on its
+own axis, and scales smoothly over time. The scene is interactive, allowing users
+to navigate using `OrbitControls`.
 
-Currently, two official plugins are available:
+The cube's position, rotation, and scale are animated using the `useFrame` hook,
+which updates the properties on each frame render. The cube's scale is based on a
+sine function, creating a smooth oscillation effect.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The animation is rendered in a 3D environment, providing a visually appealing and
+dynamic experience. The use of `OrbitControls` allows users to explore the scene
+from different angles, enhancing the interactivity of the animation.
 
-## Expanding the ESLint configuration
+Here's a preview of the final result:
+![Final Result](docs/animation.gif)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
