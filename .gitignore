@@ -91,6 +91,9 @@ crashlytics-build.properties
 
 
 # -- [Node.js] --
+# Vite specific
+**/.vite/deps
+
 # Logs
 logs
 *.log

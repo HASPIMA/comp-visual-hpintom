@@ -18,6 +18,9 @@ Tools: matplotlib, numpy, imageio
 
 ### Results for python
 
+Please refer to the `python` folder for the code and results of the Three.js
+project. Or click [here](python/README.md) to see the final result.
+
 ## Unity (LTS version) (Optional)
 
 Scenario:
@@ -56,7 +59,7 @@ project. Or click [here](threejs/README.md) to see the final result.
 Scenario:
 
 * Create a simple sketch (2D or 3D)
-* Draw a geometric figure (rect, ellipse, or box)
+* Draw a geometric figure (`rect`, `ellipse`, or `box`)
 * Apply transformations using:
   * `translate()`, `rotate()`, `scale()`
   * `pushMatrix()` and `popMatrix()` to isolate transformations
