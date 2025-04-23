@@ -25,9 +25,9 @@ Scenario:
 * Create an empty 3D project
 * Add a cube or sphere to the scene
 * Create a C# script that applies:
-* Random translation along the X or Y axis every few seconds
-* Constant rotation dependent on `Time.deltaTime`
-* Oscillating scale based on `Mathf.Sin(Time.time)`
+  * Random translation along the X or Y axis every few seconds
+  * Constant rotation dependent on `Time.deltaTime`
+  * Oscillating scale based on `Mathf.Sin(Time.time)`
 
 > [!IMPORTANT]
 > Use `transform.Translate()`, `transform.Rotate()`, `transform.localScale`
