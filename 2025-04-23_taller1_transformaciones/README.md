@@ -56,7 +56,7 @@ project. Or click [here](threejs/README.md) to see the final result.
 Scenario:
 
 * Create a simple sketch (2D or 3D)
-* Draw a geometric figure (rect, ellipse, or box)
+* Draw a geometric figure (`rect`, `ellipse`, or `box`)
 * Apply transformations using:
   * `translate()`, `rotate()`, `scale()`
   * `pushMatrix()` and `popMatrix()` to isolate transformations
