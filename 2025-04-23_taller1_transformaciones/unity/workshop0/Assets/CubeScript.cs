@@ -27,5 +27,10 @@ public class CubeScript : MonoBehaviour
             }
         }
 
+        // Constant rotation dependent on Time.deltaTime
+        float rotationSpeedY = 50f; // degrees per second
+        float rotationAmount = rotationSpeedY * Time.deltaTime;
+        transform.Rotate(new Vector3(0, rotationAmount, 0));
+
     }
 }
