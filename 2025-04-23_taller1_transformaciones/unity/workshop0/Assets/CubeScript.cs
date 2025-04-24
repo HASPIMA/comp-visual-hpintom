@@ -35,5 +35,9 @@ public class CubeScript : MonoBehaviour
         float rotationAmount = rotationSpeedY * Time.deltaTime;
         transform.Rotate(new Vector3(0, rotationAmount, 0));
 
+        // Oscillating scale
+        float scaleFactor = 1 + Mathf.Sin(Time.time) * 0.5f; // Scale between 0.5 and 1.5
+        transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+
     }
 }
