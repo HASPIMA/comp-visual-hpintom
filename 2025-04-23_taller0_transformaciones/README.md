@@ -1,4 +1,4 @@
-# Worshop 1: Transformations
+# Workshop 0: Transformations
 
 This workshop aims to explore the fundamental concepts of geometric transformations
 (translation, rotation and scale) in different visual programming environments.
