@@ -11,7 +11,7 @@ public class CubeScript : MonoBehaviour
 
     void Update()
     {
-        // Reset position after 5 seconds
+        // Reset position after 300 frames
         bool shouldReset = Time.frameCount % 300 == 0;
 
         // Random translation along the X or Y axis every few seconds
@@ -31,7 +31,7 @@ public class CubeScript : MonoBehaviour
         }
 
         // Constant rotation dependent on Time.deltaTime
-        float rotationSpeedY = 50f; // degrees per second
+        float rotationSpeedY = 50f; // units per second
         float rotationAmount = rotationSpeedY * Time.deltaTime;
         transform.Rotate(new Vector3(0, rotationAmount, 0));
 
