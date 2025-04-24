@@ -4,7 +4,7 @@ The final result is an animated GIF that shows a triangle (the original shape)
 being transformed through a sequence of combined transformations over 60
 frames.
 
-![Animation](out/animation.gif)
+![Animation](docs/animation.gif)
 
 ## The Animation Process
 
