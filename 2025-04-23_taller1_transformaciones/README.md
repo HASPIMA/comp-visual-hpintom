@@ -21,7 +21,7 @@ Tools: matplotlib, numpy, imageio
 Please refer to the `python` folder for the code and results of the Three.js
 project. Or click [here](python/README.md) to see the final result.
 
-## Unity (LTS version) (Optional)
+## Unity (LTS version)
 
 Scenario:
 
@@ -34,6 +34,11 @@ Scenario:
 
 > [!IMPORTANT]
 > Use `transform.Translate()`, `transform.Rotate()`, `transform.localScale`
+
+### Results for Unity
+
+Please refer to the `unity` folder for the code and results of the Unity
+project. Or click [here](unity/README.md) to see the final result.
 
 ## Three.js with React Three Fiber
 
