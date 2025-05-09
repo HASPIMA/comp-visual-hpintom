@@ -1,17 +1,17 @@
 # Taller - Visualización y Conversión de Formatos 3D
 
-## 📅 Date
+##  Date
 2025-05-08
 
 ---
 
-## 🎯 Objective
+##  Objective
 
 Understand and demonstrate how to convert 3D models between formats using Python, and how to visualize them interactively in a web browser using Three.js and React.
 
 ---
 
-## 📁 Folder Structure
+##  Folder Structure
 
 2025-05-08_taller_conversion_formatos_3d/
 ├── python/ # Part 1: Python - Format conversion
@@ -23,7 +23,7 @@ Understand and demonstrate how to convert 3D models between formats using Python
 
 ---
 
-## 🧪 Part 1 – Python + Trimesh
+##  Part 1 – Python + Trimesh
 
 - Created an icosphere model using `trimesh`
 - Converted and exported it to:
@@ -39,7 +39,7 @@ Understand and demonstrate how to convert 3D models between formats using Python
 
 ---
 
-## 🌐 Part 2 – Three.js Viewer (React)
+##  Part 2 – Three.js Viewer (React)
 
 Built an interactive 3D viewer using:
 - `React` + `Vite`
@@ -55,7 +55,7 @@ Built an interactive 3D viewer using:
 
 ---
 
-## 🛠 Tools Used
+##  Tools Used
 
 - Python 3.11 + Trimesh
 - Google Colab
@@ -65,17 +65,23 @@ Built an interactive 3D viewer using:
 
 ---
 
-## 📷 Visual Results (Optional)
+##  Visual Results (Optional)
 
-threejs
+### threejs
+
 ![alt text](image.png)
 ![alt text](image-1.png)
 
-pythoon
+### python
+
 ![alt text](image-2.png)
 ![alt text](image-3.png)
+
+Gif comparison
+
+![alt text](ezgif.com-animated-gif-maker.gif)
 ---
 
-## ✅ Summary
+##  Summary
 
 This workshop demonstrated both backend and frontend workflows for working with 3D models. Python was used for creation and conversion of formats, while React and Three.js enabled interactive online visualization of the same models in `.OBJ`, `.STL`, and `.GLB` formats.
