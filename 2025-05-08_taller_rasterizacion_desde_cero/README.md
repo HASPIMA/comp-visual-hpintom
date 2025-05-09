@@ -13,7 +13,11 @@ are generated without using high-level libraries.
 
 ## Concepts Learned
 
-<!-- TODO: Add learned concepts -->
+- Rasterization
+- Classic rasterization algorithms
+  - Bresenham for lines
+  - Midpoint for circles
+  - Scanline for triangles
 
 ## Tools and environments
 
