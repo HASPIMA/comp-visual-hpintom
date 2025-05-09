@@ -67,11 +67,13 @@ Built an interactive 3D viewer using:
 
 ## 📷 Visual Results (Optional)
 
-threejs
+### threejs
+.
 ![alt text](image.png)
 ![alt text](image-1.png)
 
-pythoon
+### python
+.
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 ---
