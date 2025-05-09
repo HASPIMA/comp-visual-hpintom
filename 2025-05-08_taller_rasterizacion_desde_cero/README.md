@@ -25,3 +25,20 @@ are generated without using high-level libraries.
   - Pillow: to create and manipulate images
   - numpy: for numerical operations
   - matplotlib: for visualization
+
+## Project Structure
+
+```tree
+2025-05-08_taller_rasterizacion_desde_cero
+├── python
+│   ├── main.ipynb
+│   └── requirements.txt
+├── .python-version
+├── README.md
+├── results
+│   ├── circle.png
+│   ├── line.png
+│   └── triangle.png
+└── .vscode
+    └── settings.json
+```
