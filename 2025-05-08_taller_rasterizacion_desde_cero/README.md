@@ -29,19 +29,19 @@ are generated without using high-level libraries.
 
 ## Project Structure
 
-```tree
+```plaintext
 2025-05-08_taller_rasterizacion_desde_cero
 ├── python
-│   ├── main.ipynb
-│   └── requirements.txt
-├── .python-version
+│   ├── main.ipynb # Jupyter Notebook with the implementation of the algorithms
+│   └── requirements.txt # Prerequisites for the Python environment
+├── .python-version # Python version for pyenv
 ├── README.md
-├── results
+├── results # Directory to store the results of the algorithms
 │   ├── circle.png
 │   ├── line.png
 │   └── triangle.png
 └── .vscode
-    └── settings.json
+    └── settings.json # VSCode settings for Python environment
 ```
 
 ## Algorithms implemented
