@@ -21,9 +21,6 @@ It includes projects developed collaboratively as part of the course assignments
 
 Each folder contains a specific workshop:
 
-- `taller_conversion_formatos_3d/`: Mesh creation and format conversion using Python + interactive visualization using React Three Fiber and Three.js
-- *(Add other folders as you complete the remaining workshops)*
-
 ---
 
 ## Semester
