@@ -24,7 +24,8 @@ are generated without using high-level libraries.
 - Python 3.13.2 (Jupyter Notebook)
   - Pillow: to create and manipulate images
   - numpy: for numerical operations
-  - matplotlib: for visualization
+  - IPython: for interactive Python sessions
+- Visual Studio Code: for code editing and debugging
 
 ## Project Structure
 
