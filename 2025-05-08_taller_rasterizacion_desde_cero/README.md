@@ -129,3 +129,56 @@ def fill_triangle(pixels, size: tuple[int, int], p1: tuple[int, int],
             if 0 <= x < width and 0 <= y < height:
                 pixels[x, y] = color
 ```
+
+## Results
+
+### Line
+
+![Line](results/line.png)
+
+### Circle
+
+![Circle](results/circle.png)
+
+### Triangle
+
+![Triangle](results/triangle.png)
+
+## Analysis
+
+The three implemented algorithms showcase different approaches to rasterization, each with its own advantages and trade-offs:
+
+### Performance Comparison
+
+1. **Bresenham's Line Algorithm**
+   - Most efficient for line drawing
+   - Uses only integer arithmetic (no floating-point operations)
+   - Minimal memory usage
+   - Perfect pixel-perfect precision
+   - O(max(dx, dy)) complexity
+
+2. **Midpoint Circle Algorithm**
+   - Efficient for circles due to 8-way symmetry
+   - Integer-only arithmetic
+   - Very precise for circles
+   - O(r) complexity where r is radius
+   - More complex than line drawing but optimized through symmetry
+
+3. **Scanline Triangle Fill**
+   - Most complex of the three
+   - Uses floating-point arithmetic for interpolation
+   - Requires sorting and multiple passes
+   - O(n) complexity where n is triangle area
+   - Most memory intensive due to interpolation arrays
+
+### Precision vs Speed
+
+- Bresenham and Midpoint algorithms achieve perfect precision with integer math
+- Scanline algorithm trades some precision for filling capability
+- All three avoid anti-aliasing for performance
+
+### Memory Usage
+
+- Line: Constant memory O(1)
+- Circle: Constant memory O(1)
+- Triangle: Linear memory O(height) for scan buffers
