@@ -17,5 +17,8 @@ develop skills to extract relevant metrics from detected contours in processed i
 ## Tools and Environments
 
 - Python 3.13.2
-  - `opencv-python`
-  - `numpy`
+  - `opencv-python`: For image processing and computer vision tasks.
+  - `numpy`: For numerical operations and array manipulations.
+  - `imageio`: For creating GIF images.
+  - `IPython`: For displaying images in Jupyter notebooks.
+- Visual Studio Code: for editing, running and debugging Python code.
