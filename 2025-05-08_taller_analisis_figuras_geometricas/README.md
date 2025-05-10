@@ -12,7 +12,18 @@ develop skills to extract relevant metrics from detected contours in processed i
 
 ## Concepts Learned
 
-<!-- TODO: Add concepts learned -->
+- Image Contours: Understanding how OpenCV detects and represents shape boundaries
+- Geometric Properties:
+  - Area calculation for irregular shapes
+  - Perimeter measurement using contour points
+  - Centroid computation from contour moments
+- Binary Image Processing:
+  - Thresholding techniques for shape detection
+  - Contour detection in binary images
+- Shape Analysis:
+  - Contour approximation methods
+  - Shape classification based on geometric properties
+  - Moment calculations for shape features
 
 ## Tools and Environments
 
