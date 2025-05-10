@@ -102,3 +102,17 @@ contours_info = [
     for c in contours
 ]
 ```
+
+## Visual Results
+
+### Original image
+
+![Original Image](data/Lenna.png)
+
+### Contours and properties
+
+> [!NOTE]
+> The red circle indicates the centroid of the shape, while the blue text shows the index
+> of the contour, area, perimeter, and the red text shows the centroid coordinates.
+
+![Contours and Properties](results/contours.gif)
