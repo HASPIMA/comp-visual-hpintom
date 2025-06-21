@@ -21,8 +21,8 @@ Interpolación entre 3 puntos usando una fórmula de curva de Bézier personaliz
 ## GIFs Animados
 
 ![Evidencia 1](./InterPolaMov1.gif)
-![Evidencia 2](./InterPolaMov1.gif)
-![Evidencia 3](./InterPolaMov1.gif)
+![Evidencia 2](./InterPolaMov2.gif)
+![Evidencia 3](./InterPolaMov3.gif)
 
 ## Autores
 Harrison Stiven Pinto Marulanda
