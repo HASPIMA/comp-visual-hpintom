@@ -382,3 +382,45 @@ class GestureDetector:
             print("DEBUG: Apuntar abajo detectado!")  # Debug
             
         return is_pointing
+    
+    def is_thumb_left(self, hand_landmarks):
+        thumb_tip = hand_landmarks.landmark[4]
+        thumb_ip = hand_landmarks.landmark[3]
+        thumb_mcp = hand_landmarks.landmark[2]
+        
+        other_tips = [hand_landmarks.landmark[i] for i in [8, 12, 16, 20]]
+        other_mcps = [hand_landmarks.landmark[i-2] for i in [8, 12, 16, 20]]
+
+        threshold = 0.02
+        
+        thumb_extended_left = (thumb_tip.x < thumb_ip.x - threshold and
+                                thumb_tip.x < thumb_mcp.x - threshold)
+        
+        others_folded = all(t.y > m.y for t, m in zip(other_tips, other_mcps))
+
+        if thumb_extended_left and others_folded:
+            self.update_gesture_state("pulgar izquierda", "izquierda")
+            self.pointing_cooldown = self.cooldown_frames
+            return True
+        return False
+
+    def is_thumb_right(self, hand_landmarks):
+        thumb_tip = hand_landmarks.landmark[4]
+        thumb_ip = hand_landmarks.landmark[3]
+        thumb_mcp = hand_landmarks.landmark[2]
+
+        other_tips = [hand_landmarks.landmark[i] for i in [8, 12, 16, 20]]
+        other_mcps = [hand_landmarks.landmark[i-2] for i in [8, 12, 16, 20]]
+
+        threshold = 0.02
+
+        thumb_extended_right = (thumb_tip.x > thumb_ip.x + threshold and
+                                thumb_tip.x > thumb_mcp.x + threshold)
+
+        others_folded = all(t.y > m.y for t, m in zip(other_tips, other_mcps))
+
+        if thumb_extended_right and others_folded:
+            self.update_gesture_state("pulgar derecha", "derecha")
+            self.pointing_cooldown = self.cooldown_frames
+            return True
+        return False
