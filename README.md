@@ -9,9 +9,7 @@ It includes projects developed collaboratively as part of the course assignments
 | Name                            | GitHub Username                                |
 |---------------------------------|------------------------------------------------|
 | Harrison Stiven Pinto Marulanda | [@HASPIMA](https://github.com/HASPIMA)         |
-| Luis Gabriel Marin Muñoz        | [@lmarinmu](https://github.com/lmarinmu)       |
-| Juan Diego Lozano Colmenares    | [@JuanDiego98](https://github.com/JuanDiego98) |
-| Sergio David Motta Romero       | [@Smottar](https://github.com/Smottar)         |
+| Luis Gabriel Marin Muñoz        | [@lmarinmu](https://github.com/lmarinmu)       |        |
 | Iván David Molina Leguízamo     | [@IvanMolinaL](https://github.com/IvanMolinaL) |
 
 ## Contents
