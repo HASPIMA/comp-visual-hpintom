@@ -43,7 +43,7 @@ El mundo generado es un entorno de 10x10 bloques tipo voxel. Incluye un terreno 
 
 ---
 
-## 💾 Organización del Proyecto
+##  Organización del Proyecto
 
 ```bash
 src/
@@ -57,7 +57,7 @@ src/
 
 ---
 
-## 🧪 Ejemplo de material PBR aplicado
+##  Ejemplo de material PBR aplicado
 
 ```js
 const grassMaterial = new THREE.MeshStandardMaterial({
@@ -70,18 +70,18 @@ const grassMaterial = new THREE.MeshStandardMaterial({
 
 ---
 
-## 🧠 Reflexión Final
+##  Reflexión Final
 
 Este proyecto permitió explorar la creación de mundos procedurales combinando geometría básica, texturas PBR y agrupación de elementos. La separación en módulos facilitó la organización del código. Agregar criaturas con expresividad básica y rotación aleatoria dio un toque de personalidad al entorno.
 
 ---
 
-## 📸 Capturas
+##  Capturas
 
 ![alt text](<renders/Captura de pantalla 2025-07-05 013352.png>)
 ![alt text](<renders/Captura de pantalla 2025-07-05 013508.png>)
 ![alt text](<renders/Captura de pantalla 2025-07-05 013532.png>)
 
-## 🔗 Enlace al proyecto (si aplica)
+##  Enlace al proyecto 
 
 https://codesandbox.io/p/sandbox/three-js-forked-944tt2
