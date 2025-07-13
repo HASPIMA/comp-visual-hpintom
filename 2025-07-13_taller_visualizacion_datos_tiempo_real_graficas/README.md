@@ -3,6 +3,10 @@
 ##  Fecha
 2025-07-12
 
+## Plataforma
+> [!TIP] el codigo fuente y otros archivos relevantes puden ser encontrados en el siguiente link de google colab
+https://colab.research.google.com/drive/1XPCGlMG4NxSgvbrdFZQoaYNKWtp9j_-U?usp=sharing
+
 
 
 ##  Objetivo del Taller
