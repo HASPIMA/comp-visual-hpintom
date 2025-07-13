@@ -15,13 +15,13 @@ exploramos cómo los computadores interpretan imágenes usando OpenCV.Aplicamos 
 ## 🖼️ Evidencias
 
 ### Grises
-![grises](./media/Evidencia1.gif)
+![grises](media/Evidencia1.gif)
 
 ### Filtros
-![Filtros](./media/Evidencia2.gif)
+![Filtros](media/Evidencia2.gif)
 
 ### Bordes
-![Bordes](./media/Evidencia3.gif)
+![Bordes](media/Evidencia3.gif)
 
 ## 💬 Comentarios
 Se ven muy geniales las Imagenes resultantes.
