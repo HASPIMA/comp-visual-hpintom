@@ -1,26 +1,26 @@
 # Taller - Realidad Aumentada con Marcadores usando AR.js
 
-## 📅 Fecha
+##  Fecha
 2025-07-12
 
----
 
-## 🎯 Objetivo del Taller
+
+##  Objetivo del Taller
 
 Implementar una experiencia básica de realidad aumentada basada en marcadores directamente en el navegador, usando AR.js y A-Frame. El objetivo era proyectar un modelo 3D sobre un marcador físico detectado por la cámara web, sin necesidad de instalar aplicaciones externas.
 
----
 
-## 🧠 Conceptos Aplicados
+
+##  Conceptos Aplicados
 
 - Transformaciones geométricas básicas (escala, rotación, posición).
 - Proyección de modelos 3D en realidad aumentada.
 - Interacción con marcadores físicos (tipo "hiro").
 - Integración de librerías WebXR como A-Frame y AR.js.
 
----
 
-## 🔧 Herramientas y Entornos
+
+##  Herramientas y Entornos
 
 - A-Frame v1.3.0
 - AR.js v3.4.2 (desde `raw.githack.com`)
@@ -30,7 +30,7 @@ Implementar una experiencia básica de realidad aumentada basada en marcadores d
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 2025-07-12_taller_arjs_marcadores/
@@ -42,9 +42,8 @@ Implementar una experiencia básica de realidad aumentada basada en marcadores d
 ├── README.md
 ```
 
----
 
-## 🧪 Implementación
+##  Implementación
 
 ### 🔹 Etapas realizadas
 
@@ -54,7 +53,7 @@ Implementar una experiencia básica de realidad aumentada basada en marcadores d
 4. Proyección de un modelo 3D en formato `.glb` sobre el marcador y animación básica de rotación.
 5. Prueba de funcionamiento con cámara web y ajustes de escala/posición.
 
-### 🔹 Código relevante
+###  Código relevante
 
 ```html
 <a-scene embedded arjs="sourceType: webcam;">
@@ -72,21 +71,20 @@ Implementar una experiencia básica de realidad aumentada basada en marcadores d
 
 ---
 
-## 📊 Resultados Visuales
+##  Resultados Visuales
 
 > GIF incluido que muestra la detección del marcador y la proyección animada del modelo 3D.
 
-![arjs_modelo_glb_detectado](./resultados/arjs_modelo_glb_detectado.gif)
-
+![alt text](<Grabación 2025-07-12 235306.gif>)
 ---
 
-## 🧩 Prompts o Búsqueda Utilizada
+##  Prompts o Búsqueda Utilizada
 
 No se utilizaron prompts de IA para generación de imágenes. Sin embargo, se exploraron múltiples repositorios para encontrar un modelo `.glb` compatible con AR.js y A-Frame.
 
 ---
 
-## 💬 Reflexión Final
+##  Reflexión Final
 
 Durante el desarrollo del taller se presentaron varias dificultades técnicas. Uno de los mayores retos fue encontrar una versión funcional y actualizada de la librería AR.js, ya que muchas fuentes disponibles en línea estaban desactualizadas o bloqueadas por los navegadores por problemas de tipo MIME. Después de probar con varios CDNs fallidos, se optó por `raw.githack.com`, que resolvió el problema.
 
