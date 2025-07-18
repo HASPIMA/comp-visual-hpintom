@@ -53,11 +53,11 @@ class LaberintoGame:
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
             y += spacing
 
-        put("Indice arriba       → Mover ARRIBA ↑")
-        put("Mano abierta         → Mover ABAJO ↓")
-        put("Pulgar izquierda     → Mover IZQUIERDA ←")
-        put("Pulgar derecha       → Mover DERECHA →")
-        put("Signo paz (1.2s)     → Volver al menú")
+        put("Indice arriba       → Mover ARRIBA ")
+        put("Mano abierta         → Mover ABAJO ")
+        put("Pulgar izquierda     → Mover IZQUIERDA ")
+        put("Pulgar derecha       → Mover DERECHA ")
+        put("Signo paz (1.2s)     → Volver al menu")
         put("Signo rock (2s)      → Cerrar programa")
 
         return frame

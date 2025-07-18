@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR.js Mínimo</title>
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- AR.js fuente funcional -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- Marcador HIRO con modelo GLB -->
+      <a-marker preset="hiro">
+        <a-entity
+          gltf-model="url(models/burger.glb)"
+          scale="0.6 0.6 0.6"
+          position="0 0 0"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 4000"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
