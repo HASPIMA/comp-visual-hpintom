@@ -33,6 +33,15 @@ plt.axis('off')
 plt.tight_layout()
 plt.show()
 
+# Crear carpeta de resultados si no existe
+resultados_dir = Path('resultados')
+resultados_dir.mkdir(parents=True, exist_ok=True)
+
+# Guardar imagen suavizada
+cv2.imwrite(resultados_dir / 'suavizado.png', img_blur)
+# Guardar imagen de bordes
+cv2.imwrite(resultados_dir / 'bordes.png', img_edges)
+
 # 5. Detección de objetos con YOLOv5 (requiere torch y yolov5 instalados)
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 results = model(img_rgb)
