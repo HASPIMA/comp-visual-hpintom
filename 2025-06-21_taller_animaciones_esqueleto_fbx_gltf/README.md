@@ -10,9 +10,5 @@ Tambien agregamos audio como parte de la animacion inicial.
 
 ![Evidencia 1](./AnimaEsque.gif)
 
-## Autores
-Harrison Stiven Pinto Marulanda
-Luis Gabriel Marin Muñoz
-Juan Diego Lozano Colmenares
-Sergio David Motta Romero
+## Autor
 Iván David Molina Leguízamo
