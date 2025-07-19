@@ -27,14 +27,15 @@ def convolucion_1d(senal, kernel):
 resultado = convolucion_1d(senal, kernel)
 
 # Crear carpeta graficos si no existe
-Path('graficos').mkdir(exist_ok=True)
+folder = Path('graficos')
+folder.mkdir(exist_ok=True)
 
 # Graficar y guardar señal original
 plt.figure(figsize=(6, 3))
 plt.stem(senal)
 plt.title('Señal de entrada')
 plt.tight_layout()
-plt.savefig('graficos/señal_original.png')
+plt.savefig(folder / 'señal_original.png')
 plt.close()
 
 # Graficar y guardar kernel
@@ -42,7 +43,7 @@ plt.figure(figsize=(6, 3))
 plt.stem(kernel)
 plt.title('Kernel')
 plt.tight_layout()
-plt.savefig('graficos/kernel.png')
+plt.savefig(folder / 'kernel.png')
 plt.close()
 
 # Graficar y guardar resultado
@@ -50,7 +51,7 @@ plt.figure(figsize=(6, 3))
 plt.stem(resultado)
 plt.title('Resultado de la convolución')
 plt.tight_layout()
-plt.savefig('graficos/resultado.png')
+plt.savefig(folder / 'resultado.png')
 plt.close()
 
 # 4. Graficar la señal, el kernel y el resultado
