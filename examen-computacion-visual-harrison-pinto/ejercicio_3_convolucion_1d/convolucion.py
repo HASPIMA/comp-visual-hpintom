@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # 1. Definir una señal de entrada de 15 valores
 senal = np.array([2, 4, 6, 8, 10, 8, 6, 4, 2, 0, -2, -4, -6, -8, -10])
@@ -22,3 +23,14 @@ def convolucion_1d(senal, kernel):
 
 
 resultado = convolucion_1d(senal, kernel)
+
+# 4. Graficar la señal, el kernel y el resultado
+fig, axs = plt.subplots(3, 1, figsize=(8, 8))
+axs[0].stem(senal)
+axs[0].set_title('Señal de entrada')
+axs[1].stem(kernel)
+axs[1].set_title('Kernel')
+axs[2].stem(resultado)
+axs[2].set_title('Resultado de la convolución')
+plt.tight_layout()
+plt.show()
