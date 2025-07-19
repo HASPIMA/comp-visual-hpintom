@@ -7,11 +7,7 @@ Ademas generamos UI para controlar esas animaciones ademas de con el teclado.
 
 ## GIFs Animados
 
-![Evidencia 1](./MotionDesing1.gif)
+![Evidencia 1](MotionDesing1.gif)
 
-## Autores
-Harrison Stiven Pinto Marulanda
-Luis Gabriel Marin Muñoz
-Juan Diego Lozano Colmenares
-Sergio David Motta Romero
+## Autor
 Iván David Molina Leguízamo

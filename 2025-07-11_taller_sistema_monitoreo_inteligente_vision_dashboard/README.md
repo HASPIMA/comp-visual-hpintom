@@ -1,7 +1,11 @@
 # 🧪 Taller - Sistema de Monitoreo Inteligente
 
+---
+
 ## 🎯 Objetivo
 Sistema que detecta personas en tiempo real, guarda capturas, registra eventos y muestra estadísticas visuales.
+
+---
 
 ## 🔧 Tecnologías usadas
 - OpenCV (captura de video)
@@ -9,6 +13,8 @@ Sistema que detecta personas en tiempo real, guarda capturas, registra eventos y
 - pandas (log)
 - matplotlib (panel)
 - tkinter (alerta)
+
+---
 
 ## 📸 Evidencias
 
@@ -20,3 +26,8 @@ Sistema que detecta personas en tiempo real, guarda capturas, registra eventos y
 
 ### 🧾 Log de eventos
 ![logs](logs/eventos.csv)
+
+---
+
+## Autor
+Iván David Molina Leguízamo
