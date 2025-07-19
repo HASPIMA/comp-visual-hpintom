@@ -7,6 +7,7 @@
   - [Descripción](#descripción)
   - [Actividades](#actividades)
   - [Instrucciones para correr el proyecto](#instrucciones-para-correr-el-proyecto)
+  - [Resultados](#resultados)
 
 ## Descripción
 
@@ -30,3 +31,19 @@ sólo es necesario ejecutar:
 ```sh
 uv run convolucion.py
 ```
+
+## Resultados
+
+A continuación se muestran los gráficos generados por el script:
+
+**Señal original:**
+
+![Señal original](graficos/señal_original.png)
+
+**Kernel:**
+
+![Kernel](graficos/kernel.png)
+
+**Resultado de la convolución:**
+
+![Resultado de la convolución](graficos/resultado.png)
