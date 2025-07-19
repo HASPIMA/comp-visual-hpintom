@@ -1,5 +1,7 @@
-import numpy as np
+from pathlib import Path
+
 import matplotlib.pyplot as plt
+import numpy as np
 
 # 1. Definir una señal de entrada de 15 valores
 senal = np.array([2, 4, 6, 8, 10, 8, 6, 4, 2, 0, -2, -4, -6, -8, -10])
@@ -23,6 +25,33 @@ def convolucion_1d(senal, kernel):
 
 
 resultado = convolucion_1d(senal, kernel)
+
+# Crear carpeta graficos si no existe
+Path('graficos').mkdir(exist_ok=True)
+
+# Graficar y guardar señal original
+plt.figure(figsize=(6, 3))
+plt.stem(senal)
+plt.title('Señal de entrada')
+plt.tight_layout()
+plt.savefig('graficos/señal_original.png')
+plt.close()
+
+# Graficar y guardar kernel
+plt.figure(figsize=(6, 3))
+plt.stem(kernel)
+plt.title('Kernel')
+plt.tight_layout()
+plt.savefig('graficos/kernel.png')
+plt.close()
+
+# Graficar y guardar resultado
+plt.figure(figsize=(6, 3))
+plt.stem(resultado)
+plt.title('Resultado de la convolución')
+plt.tight_layout()
+plt.savefig('graficos/resultado.png')
+plt.close()
 
 # 4. Graficar la señal, el kernel y el resultado
 fig, axs = plt.subplots(3, 1, figsize=(8, 8))
