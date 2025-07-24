@@ -11,6 +11,7 @@ It includes projects developed collaboratively as part of the course assignments
 | Harrison Stiven Pinto Marulanda | [@HASPIMA](https://github.com/HASPIMA)         |
 | Luis Gabriel Marin Muñoz        | [@lmarinmu](https://github.com/lmarinmu)       |        |
 | Iván David Molina Leguízamo     | [@IvanMolinaL](https://github.com/IvanMolinaL) |
+| Sebastian Gordillo              | ...  |
 
 ## Contents
 

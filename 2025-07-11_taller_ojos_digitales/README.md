@@ -1,7 +1,11 @@
 # 🧪 Taller Ojos Digitales
 
+---
+
 ## 📌 Descripción
 exploramos cómo los computadores interpretan imágenes usando OpenCV.Aplicamos algunos filtros y técnicas de detección de bordes.
+
+---
 
 ## 🔄 Flujo
 1. Carga de imagen y conversión a escala de grises.
@@ -11,6 +15,8 @@ exploramos cómo los computadores interpretan imágenes usando OpenCV.Aplicamos 
 3. Detección de bordes:
    - Sobel (X/Y)
    - Laplaciano
+
+---
 
 ## 🖼️ Evidencias
 
@@ -23,5 +29,12 @@ exploramos cómo los computadores interpretan imágenes usando OpenCV.Aplicamos 
 ### Bordes
 ![Bordes](./media/Evidencia3.gif)
 
+---
+
 ## 💬 Comentarios
-Se ven muy geniales las Imagenes resultantes.
+Se ven geniales las Imagenes resultantes.
+
+---
+
+## Autor
+Iván David Molina Leguízamo
