@@ -5,9 +5,10 @@ from mediapipe.python.solutions.hands import HandLandmark
 class GestureDetector:
     def __init__(self):
         # Cooldowns separados por tipo de gesto
+        # Estos cooldowns ayudan a evitar detecciones repetitivas
         self.pointing_cooldown = 0
         self.fist_cooldown = 0
-        self.open_hand_cooldown = 0  # Nuevo cooldown para mano abierta
+        self.open_hand_cooldown = 0  
         self.cooldown_frames = 10  # Reducido aún más para mejor responsividad
         
         # Para gestos con tiempo sostenido
@@ -17,6 +18,7 @@ class GestureDetector:
         self.peace_hold_duration = 1.2  # 1.2 segundos para peace
         
         # Tolerancia para flickering en gestos sostenidos
+        # cuando se deja de detectar el gesto sostenido se espera un tiempo antes de resetear
         self.gesture_tolerance_time = 0.2  # 200ms de tolerancia
         
         # Estado actual del gesto detectado
@@ -24,6 +26,7 @@ class GestureDetector:
         self.current_context_action = "nada"
         
         # Contador para estabilizar detección
+        # wait 5 frames before resetting the gesture state
         self.no_gesture_frames = 0
         self.no_gesture_threshold = 5  # Frames sin gesto antes de resetear
         
@@ -58,7 +61,7 @@ class GestureDetector:
             self.reset_to_no_gesture()
     
     def is_rock_sign(self, hand_landmarks):
-        """Detecta el signo rock 🤟 (índice y meñique extendidos, medio y anular doblados)"""
+        """Detecta el signo rock 🤟 (índice y menique extendidos, medio y anular doblados)"""
         index_tip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_TIP]
         index_pip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_PIP]
         
@@ -74,7 +77,7 @@ class GestureDetector:
         # Threshold menos estricto
         threshold = 0.02  # Reducido de 0.03 a 0.02
         
-        # Índice y meñique extendidos (menos estricto)
+        # Índice y menique extendidos (menos estricto)
         index_extended = index_tip.y < index_pip.y - threshold
         pinky_extended = pinky_tip.y < pinky_pip.y - threshold
         
@@ -82,7 +85,7 @@ class GestureDetector:
         middle_folded = middle_tip.y > middle_pip.y + threshold
         ring_folded = ring_tip.y > ring_pip.y + threshold
         
-        # No importa el pulgar - solo verificar índice, medio, anular y meñique
+        # No importa el pulgar - solo verificar índice, medio, anular y menique
         return (index_extended and pinky_extended and middle_folded and ring_folded)
     
     def detect_timed_gestures(self, hand_landmarks, current_state):
@@ -109,7 +112,7 @@ class GestureDetector:
         else:
             # Solo resetear si han pasado algunos frames sin el gesto (tolerancia al flickering)
             if self.rock_gesture_start_time is not None:
-                # Dar una pequeña tolerancia de tiempo para el flickering
+                # Dar una pequena tolerancia de tiempo para el flickering
                 time_since_start = current_time - self.rock_gesture_start_time
                 if time_since_start < self.gesture_tolerance_time:  # Tolerancia
                     self.update_gesture_state("signo rock", "manteniendo... (tolerancia)")
@@ -140,7 +143,7 @@ class GestureDetector:
         else:
             # Solo resetear si han pasado algunos frames sin el gesto (tolerancia al flickering)
             if self.peace_gesture_start_time is not None:
-                # Dar una pequeña tolerancia de tiempo para el flickering
+                # Dar una pequena tolerancia de tiempo para el flickering
                 time_since_start = current_time - self.peace_gesture_start_time
                 if time_since_start < self.gesture_tolerance_time:  # Tolerancia
                     action = "ir al juego" if current_state == "MAIN_MENU" else "volver al menú"
@@ -152,7 +155,7 @@ class GestureDetector:
         return None
     
     def is_peace_sign(self, hand_landmarks):
-        """Detecta el signo de la paz (SOLO índice y medio arriba, anular y meñique abajo)"""
+        """Detecta el signo de la paz (SOLO índice y medio arriba, anular y menique abajo)"""
         # Usar PIP joints para mayor precisión
         index_tip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_TIP]
         index_pip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_PIP]
@@ -173,15 +176,15 @@ class GestureDetector:
         index_extended = index_tip.y < index_pip.y - threshold
         middle_extended = middle_tip.y < middle_pip.y - threshold
         
-        # Anular y meñique doblados (menos estricto)
+        # Anular y menique doblados (menos estricto)
         ring_folded = ring_tip.y > ring_pip.y + threshold
         pinky_folded = pinky_tip.y > pinky_pip.y + threshold
         
-        # No importa el pulgar - solo verificar índice, medio, anular y meñique
+        # No importa el pulgar - solo verificar índice, medio, anular y menique
         return (index_extended and middle_extended and ring_folded and pinky_folded)
     
     def is_fist(self, hand_landmarks):
-        """Detecta un puño - método mejorado con menos falsos positivos"""
+        """Detecta un puno - método mejorado con menos falsos positivos"""
         if self.fist_cooldown > 0:
             return False
             
@@ -212,7 +215,7 @@ class GestureDetector:
         ring_folded = ring_tip.y >= ring_mcp.y + threshold
         pinky_folded = pinky_tip.y >= pinky_mcp.y + threshold
         
-        # TODOS los dedos deben estar doblados para ser puño
+        # TODOS los dedos deben estar doblados para ser puno
         all_folded = index_folded and middle_folded and ring_folded and pinky_folded
         
         # Verificar que NO hay dedos claramente extendidos (anti-falso positivo más estricto)
@@ -223,13 +226,13 @@ class GestureDetector:
         
         any_extended = index_extended or middle_extended or ring_extended or pinky_extended
         
-        # Es puño solo si TODOS están doblados Y NINGUNO está extendido
+        # Es puno solo si TODOS están doblados Y NINGUNO está extendido
         is_fist_gesture = all_folded and not any_extended
         
         if is_fist_gesture:
             self.fist_cooldown = self.cooldown_frames
-            self.update_gesture_state("puño", "detectado")
-            print(f"DEBUG: Puño detectado! Todos doblados: {all_folded}, Alguno extendido: {any_extended}")
+            self.update_gesture_state("puno", "detectado")
+            print(f"DEBUG: Puno detectado! Todos doblados: {all_folded}, Alguno extendido: {any_extended}")
             
         return is_fist_gesture
     
@@ -277,7 +280,7 @@ class GestureDetector:
             ring_tip.y < ring_mcp.y - mcp_threshold):
             fingers_extended.append("ring")
             
-        # Meñique extendido
+        # Menique extendido
         if (pinky_tip.y < pinky_pip.y - pip_threshold and 
             pinky_tip.y < pinky_mcp.y - mcp_threshold):
             fingers_extended.append("pinky")
@@ -348,7 +351,7 @@ class GestureDetector:
         if self.pointing_cooldown > 0:
             return False
             
-        # Obtener la muñeca como referencia
+        # Obtener la muneca como referencia
         wrist = hand_landmarks.landmark[HandLandmark.WRIST]
         index_tip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_TIP]
         index_pip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_PIP]
@@ -383,7 +386,47 @@ class GestureDetector:
             
         return is_pointing
     
+    def is_pinky_up(self, hand_landmarks):
+        """Detecta meñique levantado (los otros 3 dedos abajo)"""
+        if self.pointing_cooldown > 0:
+            return False
+            
+        # Obtener landmarks relevantes
+        index_tip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_TIP]
+        index_pip = hand_landmarks.landmark[HandLandmark.INDEX_FINGER_PIP]
+        
+        middle_tip = hand_landmarks.landmark[HandLandmark.MIDDLE_FINGER_TIP]
+        middle_pip = hand_landmarks.landmark[HandLandmark.MIDDLE_FINGER_PIP]
+        
+        ring_tip = hand_landmarks.landmark[HandLandmark.RING_FINGER_TIP]
+        ring_pip = hand_landmarks.landmark[HandLandmark.RING_FINGER_PIP]
+        
+        pinky_tip = hand_landmarks.landmark[HandLandmark.PINKY_TIP]
+        pinky_pip = hand_landmarks.landmark[HandLandmark.PINKY_PIP]
+        
+        threshold = 0.025
+        
+        # Meñique extendido hacia arriba
+        pinky_extended = pinky_tip.y < pinky_pip.y - threshold
+        
+        # Otros dedos no tan extendidos (doblados)
+        index_not_extended = index_tip.y > index_pip.y - threshold/2
+        middle_not_extended = middle_tip.y > middle_pip.y - threshold/2
+        ring_not_extended = ring_tip.y > ring_pip.y - threshold/2
+        
+        is_pinky_gesture = (pinky_extended and index_not_extended and 
+                           middle_not_extended and ring_not_extended)
+        
+        if is_pinky_gesture:
+            self.pointing_cooldown = self.cooldown_frames
+            self.update_gesture_state("meñique arriba", "izquierda")
+            print("DEBUG: Meñique arriba detectado!")
+            
+        return is_pinky_gesture
+
     def is_thumb_left(self, hand_landmarks):
+        # Esta función ya no se usa para el laberinto
+        # Se mantiene por compatibilidad con otros juegos si es necesario
         thumb_tip = hand_landmarks.landmark[4]
         thumb_ip = hand_landmarks.landmark[3]
         thumb_mcp = hand_landmarks.landmark[2]
@@ -391,7 +434,7 @@ class GestureDetector:
         other_tips = [hand_landmarks.landmark[i] for i in [8, 12, 16, 20]]
         other_mcps = [hand_landmarks.landmark[i-2] for i in [8, 12, 16, 20]]
 
-        threshold = 0.02
+        threshold = 0.025
         
         thumb_extended_left = (thumb_tip.x < thumb_ip.x - threshold and
                                 thumb_tip.x < thumb_mcp.x - threshold)
@@ -412,7 +455,7 @@ class GestureDetector:
         other_tips = [hand_landmarks.landmark[i] for i in [8, 12, 16, 20]]
         other_mcps = [hand_landmarks.landmark[i-2] for i in [8, 12, 16, 20]]
 
-        threshold = 0.02
+        threshold = 0.025
 
         thumb_extended_right = (thumb_tip.x > thumb_ip.x + threshold and
                                 thumb_tip.x > thumb_mcp.x + threshold)

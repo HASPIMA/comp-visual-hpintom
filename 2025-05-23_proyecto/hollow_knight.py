@@ -56,8 +56,8 @@ class HollowKnightGame:
             y += spacing
 
         put("HOLLOW KNIGHT (control corporal)", (0, 255, 255))
-        put("Inclinar cuerpo a la izquierda:  ←")
-        put("Inclinar cuerpo a la derecha:    →")
+        put("Inclinar cuerpo a la izquierda:  ")
+        put("Inclinar cuerpo a la derecha:    ")
         put("Levantar brazo:                  Z (disparo)")
         put("Tocarse ambas rodillas:          X (salto)")
         put("Postura recta y brazos abajo:    Volver al menú")

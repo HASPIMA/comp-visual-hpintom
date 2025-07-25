@@ -1,9 +1,7 @@
 import cv2
 from mediapipe.python.solutions import drawing_utils as mp_drawing
 from mediapipe.python.solutions.hands import HAND_CONNECTIONS, Hands
-from mediapipe.python.solutions.pose import Pose
-
-from mediapipe.python.solutions.pose import POSE_CONNECTIONS
+from mediapipe.python.solutions.pose import Pose, POSE_CONNECTIONS
 
 
 from game_states import GameState
@@ -16,7 +14,9 @@ from hollow_knight import HollowKnightGame
 
 class GestureGameApp:
     def __init__(self):
-        self.camera_index = 0
+        #use 0 for the default camera
+        #use 1 for the external camera
+        self.camera_index = 1
         self.cap = cv2.VideoCapture(self.camera_index)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
@@ -163,7 +163,7 @@ class GestureGameApp:
             return self.laberinto_game.handle_gesture("up")
         elif self.gesture_detector.is_hand_open(hand_landmarks, "LABERINTO_GAME"):
             return self.laberinto_game.handle_gesture("down")
-        elif self.gesture_detector.is_thumb_left(hand_landmarks):
+        elif self.gesture_detector.is_pinky_up(hand_landmarks):
             return self.laberinto_game.handle_gesture("left")
         elif self.gesture_detector.is_thumb_right(hand_landmarks):
             return self.laberinto_game.handle_gesture("right")
