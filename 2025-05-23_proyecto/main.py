@@ -1,4 +1,8 @@
 import cv2
+import tkinter as tk
+from tkinter import ttk
+from PIL import Image, ImageTk
+import threading
 from mediapipe.python.solutions import drawing_utils as mp_drawing
 from mediapipe.python.solutions.hands import HAND_CONNECTIONS, Hands
 from mediapipe.python.solutions.pose import Pose, POSE_CONNECTIONS
@@ -11,16 +15,40 @@ from menu_renderer import MenuRenderer
 from dino_game import DinoGame
 from laberinto_game import LaberintoGame
 from hollow_knight import HollowKnightGame
+# from metrics_collector import MetricsCollector  # DESHABILITADO
 
 class GestureGameApp:
     def __init__(self):
-        #use 0 for the default camera
-        #use 1 for the external camera
-        self.camera_index = 1
+        # Configurar ventana de tkinter
+        self.root = tk.Tk()
+        self.root.title("🎮 GESTIK - Control por Gestos")
+        self.root.geometry("1280x720")
+        
+        # Intentar cargar icono (si existe)
+        try:
+            # Cargar icono PNG y convertir para tkinter
+            icon_image = Image.open("icon.png")
+            # Redimensionar si es muy grande (máximo 64x64 para el icono)
+            icon_image = icon_image.resize((64, 64), Image.Resampling.LANCZOS)
+            icon_photo = ImageTk.PhotoImage(icon_image)
+            self.root.iconphoto(True, icon_photo)
+        except Exception as e:
+            print(f"Icono no encontrado: {e}, usando icono por defecto")
+        
+        # Configurar canvas para mostrar video
+        self.canvas = tk.Canvas(self.root, bg='black')
+        self.canvas.pack(fill=tk.BOTH, expand=True)
+        
+        # Variables de control
+        self.running = True
+        
+        # Configurar cámara
+        self.camera_index = 0  # Fijo en cámara 1 como solicitaste
         self.cap = cv2.VideoCapture(self.camera_index)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
+        # Configurar MediaPipe
         self.hands = Hands(
             static_image_mode=False,
             max_num_hands=1,
@@ -29,6 +57,7 @@ class GestureGameApp:
         )
         self.pose = Pose(static_image_mode=False, model_complexity=1, enable_segmentation=False)
 
+        # Configurar estados del juego
         self.current_state = GameState.MAIN_MENU
         self.gesture_detector = GestureDetector()
         self.pose_detector = PoseDetector()
@@ -37,12 +66,118 @@ class GestureGameApp:
         self.laberinto_game = LaberintoGame()
         self.hollow_knight_game = HollowKnightGame()
 
+        # Inicializar sistema de métricas
+        # self.metrics = MetricsCollector()  # DESHABILITADO
+        
         self.state_change_cooldown = 0
+        
+        # Configurar eventos de cierre de ventana
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+
+    def on_closing(self):
+        """Maneja el cierre de la aplicación"""
+        print("Cerrando aplicación...")
+        self.running = False
+        
+        # Generar reporte de métricas antes de cerrar
+        # if hasattr(self, 'metrics'):
+        #     self.metrics.generate_report()  # DESHABILITADO
+        
+        if self.cap:
+            self.cap.release()
+        # Liberar recursos de MediaPipe
+        if hasattr(self, 'hands'):
+            self.hands.close()
+        if hasattr(self, 'pose'):
+            self.pose.close()
+        # Cerrar ventana de tkinter
+        try:
+            self.root.quit()  # Salir del mainloop
+            self.root.destroy()  # Destruir la ventana
+        except:
+            pass
+
+    def convert_cv2_to_tkinter(self, cv2_image):
+        """Convierte imagen de OpenCV a formato compatible con tkinter"""
+        # Convertir de BGR a RGB
+        rgb_image = cv2.cvtColor(cv2_image, cv2.COLOR_BGR2RGB)
+        
+        # Convertir a PIL Image
+        pil_image = Image.fromarray(rgb_image)
+        
+        # Obtener tamaño del canvas
+        canvas_width = self.canvas.winfo_width()
+        canvas_height = self.canvas.winfo_height()
+        
+        # Si el canvas aún no tiene tamaño, usar tamaño por defecto
+        if canvas_width <= 1 or canvas_height <= 1:
+            canvas_width, canvas_height = 1280, 720
+        
+        # Redimensionar manteniendo aspect ratio
+        img_width, img_height = pil_image.size
+        aspect_ratio = img_width / img_height
+        canvas_aspect_ratio = canvas_width / canvas_height
+        
+        if aspect_ratio > canvas_aspect_ratio:
+            # La imagen es más ancha
+            new_width = canvas_width
+            new_height = int(canvas_width / aspect_ratio)
+        else:
+            # La imagen es más alta
+            new_height = canvas_height
+            new_width = int(canvas_height * aspect_ratio)
+        
+        # Redimensionar imagen
+        pil_image = pil_image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+        
+        # Convertir a ImageTk
+        tk_image = ImageTk.PhotoImage(pil_image)
+        
+        return tk_image, new_width, new_height
+
+    def update_frame(self):
+        """Actualiza el frame de video en la ventana de tkinter"""
+        if not self.running:
+            return
+            
+        frame = self.process_frame()
+        
+        if frame is not None:
+            try:
+                # Convertir frame para tkinter
+                tk_image, img_width, img_height = self.convert_cv2_to_tkinter(frame)
+                
+                # Limpiar canvas
+                self.canvas.delete("all")
+                
+                # Centrar imagen en canvas
+                canvas_width = self.canvas.winfo_width()
+                canvas_height = self.canvas.winfo_height()
+                x = (canvas_width - img_width) // 2
+                y = (canvas_height - img_height) // 2
+                
+                # Mostrar imagen
+                self.canvas.create_image(x, y, anchor=tk.NW, image=tk_image)
+                
+                # Mantener referencia para evitar garbage collection
+                self.canvas.image = tk_image
+                
+            except Exception as e:
+                print(f"Error actualizando frame: {e}")
+        
+        # Programar siguiente actualización
+        if self.running:
+            self.root.after(30, self.update_frame)  # ~33 FPS
 
     def process_frame(self):
         ret, frame = self.cap.read()
         if not ret:
             return None
+
+        # Registrar métricas de frame
+        # if hasattr(self, 'metrics'):
+        #     self.metrics.record_frame()
+        #     self.metrics.record_system_resources()  # DESHABILITADO
 
         frame = cv2.flip(frame, 1)
         image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -97,6 +232,7 @@ class GestureGameApp:
             if timed_gesture == "rock_hold":
                 print("Rock sign held for 2s - Closing program")
                 self.current_state = GameState.CLOSED
+                self.on_closing()  # Cerrar realmente la aplicación
                 return
             elif timed_gesture == "peace_hold":
                 print("Peace sign held for 1.2s - Toggling menu")
@@ -199,31 +335,41 @@ class GestureGameApp:
         return frame
 
     def run(self):
-        print("¡Aplicación de Juegos por Gestos Iniciada!")
+        """Inicia la aplicación con interfaz tkinter"""
+        print("🎮 ¡GESTIK - Control por Gestos Iniciado!")
         print("Controles:")
         print("- Signo rock 🤟 (2s): Cerrar programa")
         print("- Signo de paz ✌️ (1.2s): Cambiar entre menú y juego")
         print("- Apuntar arriba ☝️: Opción anterior")
         print("- Apuntar abajo 👇: Siguiente opción")
-        print("- Mano abierta 🖐️: Seleccionar / Mover abajo")
-        print("- Pulgar izquierdo 👈: Mover izquierda")
+        print("- Mano abierta 🖐️: Seleccionar / Saltar")
+        print("- Meñique arriba 🤙: Mover izquierda")
         print("- Pulgar derecho 👉: Mover derecha")
-        print("- Presiona 'q' para salir")
-
-        while self.current_state != GameState.CLOSED:
-            frame = self.process_frame()
-            if frame is None:
-                break
-            cv2.imshow('Gesture Game Hub', frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
-
-        self.cleanup()
+        print("- Cierra la ventana con X para salir")
+        print("- Ventana redimensionable: Puedes cambiar el tamaño!")
+        
+        # Iniciar actualización de frames
+        self.update_frame()
+        
+        # Iniciar loop principal de tkinter
+        try:
+            self.root.mainloop()
+        except KeyboardInterrupt:
+            print("Interrumpido por usuario")
+        finally:
+            self.cleanup()
 
     def cleanup(self):
-        self.cap.release()
-        cv2.destroyAllWindows()
-        print("Application closed.")
+        """Limpia recursos al cerrar la aplicación"""
+        print("Cerrando aplicación...")
+        self.running = False
+        if hasattr(self, 'cap') and self.cap:
+            self.cap.release()
+        if hasattr(self, 'hands'):
+            self.hands.close()
+        if hasattr(self, 'pose'):
+            self.pose.close()
+        print("✅ GESTIK cerrado correctamente.")
 
 if __name__ == "__main__":
     app = GestureGameApp()
