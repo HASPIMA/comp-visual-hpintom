@@ -1,0 +1,41 @@
+
+# GESTIK - Reporte de Métricas de Sesión
+Generado: 2025-07-26 03:53:10
+Duración: 250.5 segundos (4.2 minutos)
+
+## 📊 RENDIMIENTO GENERAL
+- Frames procesados: 1313
+- FPS promedio: 5.2
+- FPS mínimo: 0.6
+- FPS máximo: 6.5
+
+## 💻 RECURSOS DEL SISTEMA
+- CPU promedio: 55.0%
+- Memoria promedio: 90.4%
+- CPU máximo: 86.7%
+
+## 🖐️ PRECISIÓN DE GESTOS
+- peace: 90.0% (18/20)
+- fist: 93.3% (28/30)
+- palm_open: 93.8% (30/32)
+- rock: 91.9% (34/37)
+- thumb_right: 77.3% (17/22)
+
+## ⚡ RESPONSIVIDAD
+- Tiempo promedio: 49.0ms
+- Tiempo mínimo: 25.0ms
+- Tiempo máximo: 92.6ms
+- Desviación estándar: 16.2ms
+
+## 🎯 OBSERVACIONES
+- Problemas de distancia detectados: 4
+- Ajustes de iluminación: 3
+- MediaPipe mostró alta precisión en condiciones normales
+- Gesto 'pulgar derecha' requiere más extensión, menor precisión
+- Rendimiento estable durante toda la sesión
+
+## 🔍 CONCLUSIONES
+- MediaPipe es muy confiable para detección de gestos
+- Principal limitante: condiciones de iluminación y distancia
+- Responsividad adecuada para gaming (< 100ms promedio)
+- Uso de recursos aceptable para aplicación en tiempo real
