@@ -3,6 +3,10 @@
 ## Fecha
 2025-07-24
 
+##Plataforma
+Ejercicio realizado en google colab
+https://colab.research.google.com/drive/18mWnNup1VRQpeC4Qa105aklhWGvfm0zJ?usp=sharing
+
 ## Objetivo del Taller
 Implementar el reconocimiento de comandos de voz desde un archivo de audio en Google Colab y realizar una visualización de color en base al comando detectado.
 
