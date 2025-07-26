@@ -1,0 +1,5 @@
+/* web/style.css */
+body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+img { border: 1px solid #ccc; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #aaa; padding: 8px; text-align: center; }
