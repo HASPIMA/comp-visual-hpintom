@@ -177,7 +177,7 @@ class GestureGameApp:
         elif self.current_state == GameState.LABERINTO_GAME:
             frame = self.laberinto_game.draw_info(frame)
         elif self.current_state == GameState.HOLLOW_KNIGHT:
-            frame = self.hollow_knight_game.draw_info(frame)
+            frame = self.hollow_knight_game.draw_info(frame, self.pose_detector)
 
         cv2.putText(frame, f"Estado: {self.current_state.value}",
                    (frame.shape[1] - 200, 30),
