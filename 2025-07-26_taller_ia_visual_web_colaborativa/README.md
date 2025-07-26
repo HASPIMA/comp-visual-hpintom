@@ -4,18 +4,18 @@
 Se aplicó YOLOv8 sobre varias imagenes de prueba. Se detectaron objetos con confianza mayor al 0.5.
 
 ## 🎯 Imagenes de Prueba
-![imagen0](python/imagen0.gif)
-![imagen1](python/imagen1.gif)
-![imagen2](python/imagen2.gif)
-![imagen3](python/imagen3.gif)
-![imagen4](python/imagen4.gif)
+![imagen0](python/imagen0.jpg)
+![imagen1](python/imagen1.jpg)
+![imagen2](python/imagen2.jpg)
+![imagen3](python/imagen3.jpg)
+![imagen4](python/imagen4.jpg)
 
 ## 🎯 Imagenes resultado
-![deteccion_0](web/resultados/deteccion_0.gif)
-![deteccion_1](web/resultados/deteccion_1.gif)
-![deteccion_2](web/resultados/deteccion_2.gif)
-![deteccion_3](web/resultados/deteccion_3.gif)
-![deteccion_4](web/resultados/deteccion_4.gif)
+![deteccion_0](web/resultados/deteccion_0.png)
+![deteccion_1](web/resultados/deteccion_1.png)
+![deteccion_2](web/resultados/deteccion_2.png)
+![deteccion_3](web/resultados/deteccion_3.png)
+![deteccion_4](web/resultados/deteccion_4.png)
 
 ## 🌐 Json resultado
 ![deteccion_0_json](web/resultados/deteccion_0.json)
